@@ -12,7 +12,6 @@
 .equ SYSTEM_CPU_PERI_CLK_EN_REG,         0x600C0004
 .equ SYSTEM_CPU_PERI_RST_EN_REG,         0x600C0008
 .equ SYSTEM_CPU_PERI_CLK_EN1_REG,        0x600C000C
-.equ SYSTEM_SYSCLK_CONF_REG,             0x600C0000
 .equ SYSTEM_PERIP_CLK_EN0_REG,           0x600C0018
 .equ SYSTEM_PERIP_CLK_EN1_REG,           0x600C001C
 .equ SYSTEM_PERIP_RST_EN0_REG,           0x600C0020
@@ -41,90 +40,96 @@
 # ------------------------------------------------------------------------------
 .equ GPIO_BASE,                          0x60004000
 
-.equ GPIO_FUNC0_OUT_SEL_REG,             0x60004500
-.equ GPIO_FUNC1_OUT_SEL_REG,             0x60004504
-.equ GPIO_FUNC2_OUT_SEL_REG,             0x60004508
-.equ GPIO_FUNC3_OUT_SEL_REG,             0x6000450C
-.equ GPIO_FUNC4_OUT_SEL_REG,             0x60004510
-.equ GPIO_FUNC5_OUT_SEL_REG,             0x60004514
-.equ GPIO_FUNC6_OUT_SEL_REG,             0x60004518
-.equ GPIO_FUNC7_OUT_SEL_REG,             0x6000451C
-.equ GPIO_FUNC8_OUT_SEL_REG,             0x60004520
-.equ GPIO_FUNC9_OUT_SEL_REG,             0x60004524
-.equ GPIO_FUNC10_OUT_SEL_REG,            0x60004528
-.equ GPIO_FUNC11_OUT_SEL_REG,            0x6000452C
-.equ GPIO_FUNC12_OUT_SEL_REG,            0x60004530
-.equ GPIO_FUNC13_OUT_SEL_REG,            0x60004534
-.equ GPIO_FUNC14_OUT_SEL_REG,            0x60004538
-.equ GPIO_FUNC15_OUT_SEL_REG,            0x6000453C
-.equ GPIO_FUNC16_OUT_SEL_REG,            0x60004540
-.equ GPIO_FUNC17_OUT_SEL_REG,            0x60004544
-.equ GPIO_FUNC18_OUT_SEL_REG,            0x60004548
-.equ GPIO_FUNC19_OUT_SEL_REG,            0x6000454C
-.equ GPIO_FUNC20_OUT_SEL_REG,            0x60004550
-.equ GPIO_FUNC21_OUT_SEL_REG,            0x60004554
-.equ GPIO_FUNC22_OUT_SEL_REG,            0x60004558
-.equ GPIO_FUNC23_OUT_SEL_REG,            0x6000455C
-.equ GPIO_FUNC24_OUT_SEL_REG,            0x60004560
-.equ GPIO_FUNC25_OUT_SEL_REG,            0x60004564
-.equ GPIO_FUNC26_OUT_SEL_REG,            0x60004568
-.equ GPIO_FUNC27_OUT_SEL_REG,            0x6000456C
-.equ GPIO_FUNC28_OUT_SEL_REG,            0x60004570
-.equ GPIO_FUNC29_OUT_SEL_REG,            0x60004574
-.equ GPIO_FUNC30_OUT_SEL_REG,            0x60004578
-.equ GPIO_FUNC31_OUT_SEL_REG,            0x6000457C
-.equ GPIO_FUNC32_OUT_SEL_REG,            0x60004580
-.equ GPIO_FUNC33_OUT_SEL_REG,            0x60004584
-.equ GPIO_FUNC34_OUT_SEL_REG,            0x60004588
-.equ GPIO_FUNC35_OUT_SEL_REG,            0x6000458C
-.equ GPIO_FUNC36_OUT_SEL_REG,            0x60004590
-.equ GPIO_FUNC37_OUT_SEL_REG,            0x60004594
-.equ GPIO_FUNC38_OUT_SEL_REG,            0x60004598
-.equ GPIO_FUNC39_OUT_SEL_REG,            0x6000459C
-.equ GPIO_FUNC40_OUT_SEL_REG,            0x600045A0
-.equ GPIO_FUNC41_OUT_SEL_REG,            0x600045A4
-.equ GPIO_FUNC42_OUT_SEL_REG,            0x600045A8
-.equ GPIO_FUNC43_OUT_SEL_REG,            0x600045AC
-.equ GPIO_FUNC44_OUT_SEL_REG,            0x600045B0
-.equ GPIO_FUNC45_OUT_SEL_REG,            0x600045B4
-.equ GPIO_FUNC46_OUT_SEL_REG,            0x600045B8
-.equ GPIO_FUNC47_OUT_SEL_REG,            0x600045BC
-.equ GPIO_FUNC48_OUT_SEL_REG,            0x600045C0
-.equ GPIO_FUNC49_OUT_SEL_REG,            0x600045C4
-.equ GPIO_FUNC50_OUT_SEL_REG,            0x600045C8
-.equ GPIO_FUNC51_OUT_SEL_REG,            0x600045CC
-.equ GPIO_FUNC52_OUT_SEL_REG,            0x600045D0
-.equ GPIO_FUNC53_OUT_SEL_REG,            0x600045D4
+.equ GPIO_FUNC0_OUT_SEL_REG,             0x60004554
+.equ GPIO_FUNC1_OUT_SEL_REG,             0x60004558
+.equ GPIO_FUNC2_OUT_SEL_REG,             0x6000455C
+.equ GPIO_FUNC3_OUT_SEL_REG,             0x60004560
+.equ GPIO_FUNC4_OUT_SEL_REG,             0x60004564
+.equ GPIO_FUNC5_OUT_SEL_REG,             0x60004568
+.equ GPIO_FUNC6_OUT_SEL_REG,             0x6000456C
+.equ GPIO_FUNC7_OUT_SEL_REG,             0x60004570
+.equ GPIO_FUNC8_OUT_SEL_REG,             0x60004574
+.equ GPIO_FUNC9_OUT_SEL_REG,             0x60004578
+.equ GPIO_FUNC10_OUT_SEL_REG,            0x6000457C
+.equ GPIO_FUNC11_OUT_SEL_REG,            0x60004580
+.equ GPIO_FUNC12_OUT_SEL_REG,            0x60004584
+.equ GPIO_FUNC13_OUT_SEL_REG,            0x60004588
+.equ GPIO_FUNC14_OUT_SEL_REG,            0x6000458C
+.equ GPIO_FUNC15_OUT_SEL_REG,            0x60004590
+.equ GPIO_FUNC16_OUT_SEL_REG,            0x60004594
+.equ GPIO_FUNC17_OUT_SEL_REG,            0x60004598
+.equ GPIO_FUNC18_OUT_SEL_REG,            0x6000459C
+.equ GPIO_FUNC19_OUT_SEL_REG,            0x600045A0
+.equ GPIO_FUNC20_OUT_SEL_REG,            0x600045A4
+.equ GPIO_FUNC21_OUT_SEL_REG,            0x600045A8
+.equ GPIO_FUNC22_OUT_SEL_REG,            0x600045AC
+.equ GPIO_FUNC23_OUT_SEL_REG,            0x600045B0
+.equ GPIO_FUNC24_OUT_SEL_REG,            0x600045B4
+.equ GPIO_FUNC25_OUT_SEL_REG,            0x600045B8
+.equ GPIO_FUNC26_OUT_SEL_REG,            0x600045BC
+.equ GPIO_FUNC27_OUT_SEL_REG,            0x600045C0
+.equ GPIO_FUNC28_OUT_SEL_REG,            0x600045C4
+.equ GPIO_FUNC29_OUT_SEL_REG,            0x600045C8
+.equ GPIO_FUNC30_OUT_SEL_REG,            0x600045CC
+.equ GPIO_FUNC31_OUT_SEL_REG,            0x600045D0
+.equ GPIO_FUNC32_OUT_SEL_REG,            0x600045D4
+.equ GPIO_FUNC33_OUT_SEL_REG,            0x600045D8
+.equ GPIO_FUNC34_OUT_SEL_REG,            0x600045DC
+.equ GPIO_FUNC35_OUT_SEL_REG,            0x600045E0
+.equ GPIO_FUNC36_OUT_SEL_REG,            0x600045E4
+.equ GPIO_FUNC37_OUT_SEL_REG,            0x600045E8
+.equ GPIO_FUNC38_OUT_SEL_REG,            0x600045EC
+.equ GPIO_FUNC39_OUT_SEL_REG,            0x600045F0
+.equ GPIO_FUNC40_OUT_SEL_REG,            0x600045F4
+.equ GPIO_FUNC41_OUT_SEL_REG,            0x600045F8
+.equ GPIO_FUNC42_OUT_SEL_REG,            0x600045FC
+.equ GPIO_FUNC43_OUT_SEL_REG,            0x60004600
+.equ GPIO_FUNC44_OUT_SEL_REG,            0x60004604
+.equ GPIO_FUNC45_OUT_SEL_REG,            0x60004608
+.equ GPIO_FUNC46_OUT_SEL_REG,            0x6000460C
+.equ GPIO_FUNC47_OUT_SEL_REG,            0x60004610
+.equ GPIO_FUNC48_OUT_SEL_REG,            0x60004614
+.equ GPIO_FUNC49_OUT_SEL_REG,            0x60004618
+.equ GPIO_FUNC50_OUT_SEL_REG,            0x6000461C
+.equ GPIO_FUNC51_OUT_SEL_REG,            0x60004620
+.equ GPIO_FUNC52_OUT_SEL_REG,            0x60004624
+.equ GPIO_FUNC53_OUT_SEL_REG,            0x60004628
 
 
 # ------------------------------------------------------------------------------
 # 4. RMT (Remote Control Peripheral & WS2812B Timing Rules)
 # ------------------------------------------------------------------------------
-.equ RMT_BASE,                           0x60006000
+.equ RMT_BASE,                           0x60016000
 
-.equ RMT_CH0CONF0_REG,                   0x60006000
-.equ RMT_CH0CONF1_REG,                   0x60006004
-.equ RMT_CH0_BIT_DIV_REG,                0x60006008
+.equ RMT_CH0DATA_REG,                    0x60016000
+.equ RMT_CH1DATA_REG,                    0x60016004
+.equ RMT_CH2DATA_REG,                    0x60016008
+.equ RMT_CH3DATA_REG,                    0x6001600C
+.equ RMT_CH4DATA_REG,                    0x60016010
+.equ RMT_CH5DATA_REG,                    0x60016014
+.equ RMT_CH6DATA_REG,                    0x60016018
+.equ RMT_CH7DATA_REG,                    0x6001601C
 
-.equ RMT_CH1CONF0_REG,                   0x60006010
-.equ RMT_CH1CONF1_REG,                   0x60006014
-.equ RMT_CH1_BIT_DIV_REG,                0x60006018
+.equ RMT_CH0CONF0_REG,                   0x60016020
+.equ RMT_CH1CONF0_REG,                   0x60016024
+.equ RMT_CH2CONF0_REG,                   0x60016028
+.equ RMT_CH3CONF0_REG,                   0x6001602C
+.equ RMT_CH4CONF0_REG,                   0x60016030
+.equ RMT_CH4CONF1_REG,                   0x60016034
+.equ RMT_CH5CONF0_REG,                   0x60016038
+.equ RMT_CH5CONF1_REG,                   0x6001603C
+.equ RMT_CH6CONF0_REG,                   0x60016040
+.equ RMT_CH6CONF1_REG,                   0x60016044
+.equ RMT_CH7CONF0_REG,                   0x60016048
+.equ RMT_CH7CONF1_REG,                   0x6001604C
 
-.equ RMT_CH2CONF0_REG,                   0x60006020
-.equ RMT_CH2CONF1_REG,                   0x60006024
-.equ RMT_CH2_BIT_DIV_REG,                0x60006028
+.equ RMT_INT_RAW_REG,                    0x60016070
+.equ RMT_INT_ST_REG,                     0x60016074
+.equ RMT_INT_ENA_REG,                    0x60016078
+.equ RMT_INT_CLR_REG,                    0x6001607C
+.equ RMT_SYS_CONF_REG,                   0x600160C0
 
-.equ RMT_CH3CONF0_REG,                   0x60006030
-.equ RMT_CH3CONF1_REG,                   0x60006034
-.equ RMT_CH3_BIT_DIV_REG,                0x60006038
-
-.equ RMT_INT_RAW_REG,                    0x600060A0
-.equ RMT_INT_ST_REG,                     0x600060A4
-.equ RMT_INT_ENA_REG,                    0x600060A8
-.equ RMT_INT_CLR_REG,                    0x600060AC
-.equ RMT_SYS_CONF_REG,                   0x600060B4
-
-.equ RMT_RAM_CH0_BASE,                   0x60006800
+.equ RMT_RAM_CH0_BASE,                   0x60016800
 
 .equ RMT_WS2812B_CODE_0,                 0x80070003
 .equ RMT_WS2812B_CODE_1,                 0x80030007
@@ -172,15 +177,78 @@
 .equ I2S0_BASE,                          0x6000F000
 .equ I2S1_BASE,                          0x6002D000
 
-.equ I2S0_TX_START_REG,                  0x6000F000
-.equ I2S0_TX_CONF_REG,                   0x6000F004
-.equ I2S0_TX_CLKM_CONF_REG,              0x6000F020
-.equ I2S0_TX_CONF1_REG,                  0x6000F028
+.equ I2S_INT_RAW_OFF,                    0x00C
+.equ I2S_INT_ST_OFF,                     0x010
+.equ I2S_INT_ENA_OFF,                    0x014
+.equ I2S_INT_CLR_OFF,                    0x018
+.equ I2S_RX_CONF_OFF,                    0x020
+.equ I2S_TX_CONF_OFF,                    0x024
+.equ I2S_RX_CONF1_OFF,                   0x028
+.equ I2S_TX_CONF1_OFF,                   0x02C
+.equ I2S_RX_CLKM_CONF_OFF,               0x030
+.equ I2S_TX_CLKM_CONF_OFF,               0x034
+.equ I2S_RX_CLKM_DIV_CONF_OFF,           0x038
+.equ I2S_TX_CLKM_DIV_CONF_OFF,           0x03C
+.equ I2S_TX_PCM2PDM_CONF_OFF,            0x040
+.equ I2S_TX_PCM2PDM_CONF1_OFF,           0x044
+.equ I2S_RX_TDM_CTRL_OFF,                0x050
+.equ I2S_TX_TDM_CTRL_OFF,                0x054
+.equ I2S_RX_TIMING_OFF,                  0x058
+.equ I2S_TX_TIMING_OFF,                  0x05C
+.equ I2S_LC_HUNG_CONF_OFF,               0x060
+.equ I2S_RX_EOF_NUM_OFF,                 0x064
+.equ I2S_CONF_SINGLE_DATA_OFF,           0x068
+.equ I2S_STATE_OFF,                      0x06C
+.equ I2S_DATE_OFF,                       0x080
 
-.equ I2S1_TX_START_REG,                  0x6002D000
-.equ I2S1_TX_CONF_REG,                   0x6002D004
-.equ I2S1_TX_CLKM_CONF_REG,              0x6002D020
-.equ I2S1_TX_CONF1_REG,                  0x6002D028
+.equ I2S0_TX_CONF_REG,                  (I2S0_BASE + I2S_TX_CONF_OFF)
+.equ I2S0_TX_CLKM_CONF_REG,              (I2S0_BASE + I2S_TX_CLKM_CONF_OFF)
+.equ I2S0_TX_CONF1_REG,                  (I2S0_BASE + I2S_TX_CONF1_OFF)
+
+.equ I2S1_TX_CONF_REG,                  (I2S1_BASE + I2S_TX_CONF_OFF)
+.equ I2S1_TX_CLKM_CONF_REG,              (I2S1_BASE + I2S_TX_CLKM_CONF_OFF)
+.equ I2S1_TX_CONF1_REG,                  (I2S1_BASE + I2S_TX_CONF1_OFF)
+
+.equ I2S0_INT_RAW_REG,                  (I2S0_BASE + I2S_INT_RAW_OFF)
+.equ I2S0_INT_ST_REG,                   (I2S0_BASE + I2S_INT_ST_OFF)
+.equ I2S0_INT_ENA_REG,                  (I2S0_BASE + I2S_INT_ENA_OFF)
+.equ I2S0_INT_CLR_REG,                  (I2S0_BASE + I2S_INT_CLR_OFF)
+.equ I2S0_RX_CONF_REG,                  (I2S0_BASE + I2S_RX_CONF_OFF)
+.equ I2S0_RX_CONF1_REG,                 (I2S0_BASE + I2S_RX_CONF1_OFF)
+.equ I2S0_RX_CLKM_CONF_REG,             (I2S0_BASE + I2S_RX_CLKM_CONF_OFF)
+.equ I2S0_RX_CLKM_DIV_CONF_REG,         (I2S0_BASE + I2S_RX_CLKM_DIV_CONF_OFF)
+.equ I2S0_TX_CLKM_DIV_CONF_REG,         (I2S0_BASE + I2S_TX_CLKM_DIV_CONF_OFF)
+.equ I2S0_TX_PCM2PDM_CONF_REG,          (I2S0_BASE + I2S_TX_PCM2PDM_CONF_OFF)
+.equ I2S0_TX_PCM2PDM_CONF1_REG,         (I2S0_BASE + I2S_TX_PCM2PDM_CONF1_OFF)
+.equ I2S0_RX_TDM_CTRL_REG,              (I2S0_BASE + I2S_RX_TDM_CTRL_OFF)
+.equ I2S0_TX_TDM_CTRL_REG,              (I2S0_BASE + I2S_TX_TDM_CTRL_OFF)
+.equ I2S0_RX_TIMING_REG,                (I2S0_BASE + I2S_RX_TIMING_OFF)
+.equ I2S0_TX_TIMING_REG,                (I2S0_BASE + I2S_TX_TIMING_OFF)
+.equ I2S0_LC_HUNG_CONF_REG,             (I2S0_BASE + I2S_LC_HUNG_CONF_OFF)
+.equ I2S0_RX_EOF_NUM_REG,               (I2S0_BASE + I2S_RX_EOF_NUM_OFF)
+.equ I2S0_CONF_SINGLE_DATA_REG,         (I2S0_BASE + I2S_CONF_SINGLE_DATA_OFF)
+.equ I2S0_STATE_REG,                    (I2S0_BASE + I2S_STATE_OFF)
+.equ I2S0_DATE_REG,                     (I2S0_BASE + I2S_DATE_OFF)
+.equ I2S1_INT_RAW_REG,                  (I2S1_BASE + I2S_INT_RAW_OFF)
+.equ I2S1_INT_ST_REG,                   (I2S1_BASE + I2S_INT_ST_OFF)
+.equ I2S1_INT_ENA_REG,                  (I2S1_BASE + I2S_INT_ENA_OFF)
+.equ I2S1_INT_CLR_REG,                  (I2S1_BASE + I2S_INT_CLR_OFF)
+.equ I2S1_RX_CONF_REG,                  (I2S1_BASE + I2S_RX_CONF_OFF)
+.equ I2S1_RX_CONF1_REG,                 (I2S1_BASE + I2S_RX_CONF1_OFF)
+.equ I2S1_RX_CLKM_CONF_REG,             (I2S1_BASE + I2S_RX_CLKM_CONF_OFF)
+.equ I2S1_RX_CLKM_DIV_CONF_REG,         (I2S1_BASE + I2S_RX_CLKM_DIV_CONF_OFF)
+.equ I2S1_TX_CLKM_DIV_CONF_REG,         (I2S1_BASE + I2S_TX_CLKM_DIV_CONF_OFF)
+.equ I2S1_TX_PCM2PDM_CONF_REG,          (I2S1_BASE + I2S_TX_PCM2PDM_CONF_OFF)
+.equ I2S1_TX_PCM2PDM_CONF1_REG,         (I2S1_BASE + I2S_TX_PCM2PDM_CONF1_OFF)
+.equ I2S1_RX_TDM_CTRL_REG,              (I2S1_BASE + I2S_RX_TDM_CTRL_OFF)
+.equ I2S1_TX_TDM_CTRL_REG,              (I2S1_BASE + I2S_TX_TDM_CTRL_OFF)
+.equ I2S1_RX_TIMING_REG,                (I2S1_BASE + I2S_RX_TIMING_OFF)
+.equ I2S1_TX_TIMING_REG,                (I2S1_BASE + I2S_TX_TIMING_OFF)
+.equ I2S1_LC_HUNG_CONF_REG,             (I2S1_BASE + I2S_LC_HUNG_CONF_OFF)
+.equ I2S1_RX_EOF_NUM_REG,               (I2S1_BASE + I2S_RX_EOF_NUM_OFF)
+.equ I2S1_CONF_SINGLE_DATA_REG,         (I2S1_BASE + I2S_CONF_SINGLE_DATA_OFF)
+.equ I2S1_STATE_REG,                    (I2S1_BASE + I2S_STATE_OFF)
+.equ I2S1_DATE_REG,                     (I2S1_BASE + I2S_DATE_OFF)
 
 
 # ------------------------------------------------------------------------------
@@ -207,24 +275,52 @@
 # ------------------------------------------------------------------------------
 # 8. USB Serial / JTAG Controller (Native USB Console)
 # ------------------------------------------------------------------------------
-.equ USB_SERIAL_JTAG_BASE,               0x60043000
+.equ USB_SERIAL_JTAG_BASE,               0x60038000
 
-.equ USB_SERIAL_JTAG_EP1_REG,            0x60043000
-.equ USB_SERIAL_JTAG_EP1_CONF_REG,       0x60043004
-.equ USB_SERIAL_JTAG_INT_RAW_REG,        0x60043008
-.equ USB_SERIAL_JTAG_INT_ST_REG,         0x6004300C
-.equ USB_SERIAL_JTAG_INT_ENA_REG,        0x60043010
-.equ USB_SERIAL_JTAG_INT_CLR_REG,        0x60043014
-.equ USB_SERIAL_JTAG_CONF0_REG,          0x60043018
+.equ USB_SERIAL_JTAG_EP1_REG,            (USB_SERIAL_JTAG_BASE + 0x00)
+.equ USB_SERIAL_JTAG_EP1_CONF_REG,       (USB_SERIAL_JTAG_BASE + 0x04)
+.equ USB_SERIAL_JTAG_INT_RAW_REG,        (USB_SERIAL_JTAG_BASE + 0x08)
+.equ USB_SERIAL_JTAG_INT_ST_REG,         (USB_SERIAL_JTAG_BASE + 0x0C)
+.equ USB_SERIAL_JTAG_INT_ENA_REG,        (USB_SERIAL_JTAG_BASE + 0x10)
+.equ USB_SERIAL_JTAG_INT_CLR_REG,        (USB_SERIAL_JTAG_BASE + 0x14)
+.equ USB_SERIAL_JTAG_CONF0_REG,          (USB_SERIAL_JTAG_BASE + 0x18)
 
 
-# ------------------------------------------------------------------------------
-# 9. UART0 / UART1 / UART2
-# ------------------------------------------------------------------------------
+# ==============================================================================
+# UART0 / UART1 / UART2
+# ==============================================================================
 .equ UART0_BASE,                         0x60000000
 .equ UART1_BASE,                         0x60010000
-.equ UART2_BASE,                         0x60020000
+.equ UART2_BASE,                         0x6002E000
 
+.equ UART_FIFO_OFF,                      0x000
+.equ UART_INT_RAW_OFF,                   0x004
+.equ UART_INT_ST_OFF,                    0x008
+.equ UART_INT_ENA_OFF,                   0x00C
+.equ UART_INT_CLR_OFF,                   0x010
+.equ UART_CLKDIV_OFF,                    0x014
+.equ UART_RX_FILT_OFF,                   0x018
+.equ UART_STATUS_OFF,                    0x01C
+.equ UART_CONF0_OFF,                     0x020
+.equ UART_CONF1_OFF,                     0x024
+.equ UART_LOWPULSE_OFF,                  0x028
+.equ UART_HIGHPULSE_OFF,                 0x02C
+.equ UART_RXD_CNT_OFF,                   0x030
+.equ UART_FLOW_CONF_OFF,                 0x034
+.equ UART_SLEEP_CONF_OFF,                0x038
+.equ UART_SWFC_CONF_OFF,                 0x03C
+.equ UART_IDLE_CONF_OFF,                 0x040
+.equ UART_RS485_CONF_OFF,                0x044
+.equ UART_AT_CMD_PRECNT_OFF,             0x048
+.equ UART_AT_CMD_GAPTOUT_OFF,            0x04C
+.equ UART_AT_CMD_POSTCNT_OFF,            0x050
+.equ UART_AT_CMD_PRECHAR_OFF,            0x054
+.equ UART_AT_CMD_CHAR_OFF,               0x05C
+.equ UART_MEM_CONF_OFF,                  0x060
+.equ UART_MEM_TX_STATUS_OFF,             0x064
+.equ UART_MEM_RX_STATUS_OFF,             0x068
+
+# UART0
 .equ UART0_FIFO_REG,                     0x60000000
 .equ UART0_INT_RAW_REG,                  0x60000004
 .equ UART0_INT_ST_REG,                   0x60000008
@@ -235,7 +331,24 @@
 .equ UART0_STATUS_REG,                   0x6000001C
 .equ UART0_CONF0_REG,                    0x60000020
 .equ UART0_CONF1_REG,                    0x60000024
+.equ UART0_LOWPULSE_REG,                 (UART0_BASE + UART_LOWPULSE_OFF)
+.equ UART0_HIGHPULSE_REG,                (UART0_BASE + UART_HIGHPULSE_OFF)
+.equ UART0_RXD_CNT_REG,                  (UART0_BASE + UART_RXD_CNT_OFF)
+.equ UART0_FLOW_CONF_REG,                (UART0_BASE + UART_FLOW_CONF_OFF)
+.equ UART0_SLEEP_CONF_REG,               (UART0_BASE + UART_SLEEP_CONF_OFF)
+.equ UART0_SWFC_CONF_REG,                (UART0_BASE + UART_SWFC_CONF_OFF)
+.equ UART0_IDLE_CONF_REG,                (UART0_BASE + UART_IDLE_CONF_OFF)
+.equ UART0_RS485_CONF_REG,               (UART0_BASE + UART_RS485_CONF_OFF)
+.equ UART0_AT_CMD_PRECNT_REG,            (UART0_BASE + UART_AT_CMD_PRECNT_OFF)
+.equ UART0_AT_CMD_GAPTOUT_REG,           (UART0_BASE + UART_AT_CMD_GAPTOUT_OFF)
+.equ UART0_AT_CMD_POSTCNT_REG,            (UART0_BASE + UART_AT_CMD_POSTCNT_OFF)
+.equ UART0_AT_CMD_PRECHAR_REG,            (UART0_BASE + UART_AT_CMD_PRECHAR_OFF)
+.equ UART0_AT_CMD_CHAR_REG,              (UART0_BASE + UART_AT_CMD_CHAR_OFF)
+.equ UART0_MEM_CONF_REG,                 (UART0_BASE + UART_MEM_CONF_OFF)
+.equ UART0_MEM_TX_STATUS_REG,            (UART0_BASE + UART_MEM_TX_STATUS_OFF)
+.equ UART0_MEM_RX_STATUS_REG,            (UART0_BASE + UART_MEM_RX_STATUS_OFF)
 
+# UART1
 .equ UART1_FIFO_REG,                     0x60010000
 .equ UART1_INT_RAW_REG,                  0x60010004
 .equ UART1_INT_ST_REG,                   0x60010008
@@ -246,17 +359,50 @@
 .equ UART1_STATUS_REG,                   0x6001001C
 .equ UART1_CONF0_REG,                    0x60010020
 .equ UART1_CONF1_REG,                    0x60010024
+.equ UART1_LOWPULSE_REG,                 (UART1_BASE + UART_LOWPULSE_OFF)
+.equ UART1_HIGHPULSE_REG,                (UART1_BASE + UART_HIGHPULSE_OFF)
+.equ UART1_RXD_CNT_REG,                  (UART1_BASE + UART_RXD_CNT_OFF)
+.equ UART1_FLOW_CONF_REG,                (UART1_BASE + UART_FLOW_CONF_OFF)
+.equ UART1_SLEEP_CONF_REG,               (UART1_BASE + UART_SLEEP_CONF_OFF)
+.equ UART1_SWFC_CONF_REG,                (UART1_BASE + UART_SWFC_CONF_OFF)
+.equ UART1_IDLE_CONF_REG,                (UART1_BASE + UART_IDLE_CONF_OFF)
+.equ UART1_RS485_CONF_REG,               (UART1_BASE + UART_RS485_CONF_OFF)
+.equ UART1_AT_CMD_PRECNT_REG,            (UART1_BASE + UART_AT_CMD_PRECNT_OFF)
+.equ UART1_AT_CMD_GAPTOUT_REG,           (UART1_BASE + UART_AT_CMD_GAPTOUT_OFF)
+.equ UART1_AT_CMD_POSTCNT_REG,            (UART1_BASE + UART_AT_CMD_POSTCNT_OFF)
+.equ UART1_AT_CMD_PRECHAR_REG,            (UART1_BASE + UART_AT_CMD_PRECHAR_OFF)
+.equ UART1_AT_CMD_CHAR_REG,              (UART1_BASE + UART_AT_CMD_CHAR_OFF)
+.equ UART1_MEM_CONF_REG,                 (UART1_BASE + UART_MEM_CONF_OFF)
+.equ UART1_MEM_TX_STATUS_REG,            (UART1_BASE + UART_MEM_TX_STATUS_OFF)
+.equ UART1_MEM_RX_STATUS_REG,            (UART1_BASE + UART_MEM_RX_STATUS_OFF)
 
-.equ UART2_FIFO_REG,                     0x60020000
-.equ UART2_INT_RAW_REG,                  0x60020004
-.equ UART2_INT_ST_REG,                   0x60020008
-.equ UART2_INT_ENA_REG,                  0x6002000C
-.equ UART2_INT_CLR_REG,                  0x60020010
-.equ UART2_CLKDIV_REG,                   0x60020014
-.equ UART2_RX_FILT_REG,                  0x60020018
-.equ UART2_STATUS_REG,                   0x6002001C
-.equ UART2_CONF0_REG,                    0x60020020
-.equ UART2_CONF1_REG,                    0x60020024
+# UART2
+.equ UART2_FIFO_REG,                     (UART2_BASE + UART_FIFO_OFF)
+.equ UART2_INT_RAW_REG,                  (UART2_BASE + UART_INT_RAW_OFF)
+.equ UART2_INT_ST_REG,                   (UART2_BASE + UART_INT_ST_OFF)
+.equ UART2_INT_ENA_REG,                  (UART2_BASE + UART_INT_ENA_OFF)
+.equ UART2_INT_CLR_REG,                  (UART2_BASE + UART_INT_CLR_OFF)
+.equ UART2_CLKDIV_REG,                   (UART2_BASE + UART_CLKDIV_OFF)
+.equ UART2_RX_FILT_REG,                  (UART2_BASE + UART_RX_FILT_OFF)
+.equ UART2_STATUS_REG,                   (UART2_BASE + UART_STATUS_OFF)
+.equ UART2_CONF0_REG,                    (UART2_BASE + UART_CONF0_OFF)
+.equ UART2_CONF1_REG,                    (UART2_BASE + UART_CONF1_OFF)
+.equ UART2_LOWPULSE_REG,                 (UART2_BASE + UART_LOWPULSE_OFF)
+.equ UART2_HIGHPULSE_REG,                (UART2_BASE + UART_HIGHPULSE_OFF)
+.equ UART2_RXD_CNT_REG,                  (UART2_BASE + UART_RXD_CNT_OFF)
+.equ UART2_FLOW_CONF_REG,                (UART2_BASE + UART_FLOW_CONF_OFF)
+.equ UART2_SLEEP_CONF_REG,               (UART2_BASE + UART_SLEEP_CONF_OFF)
+.equ UART2_SWFC_CONF_REG,                (UART2_BASE + UART_SWFC_CONF_OFF)
+.equ UART2_IDLE_CONF_REG,                (UART2_BASE + UART_IDLE_CONF_OFF)
+.equ UART2_RS485_CONF_REG,               (UART2_BASE + UART_RS485_CONF_OFF)
+.equ UART2_AT_CMD_PRECNT_REG,            (UART2_BASE + UART_AT_CMD_PRECNT_OFF)
+.equ UART2_AT_CMD_GAPTOUT_REG,           (UART2_BASE + UART_AT_CMD_GAPTOUT_OFF)
+.equ UART2_AT_CMD_POSTCNT_REG,           (UART2_BASE + UART_AT_CMD_POSTCNT_OFF)
+.equ UART2_AT_CMD_PRECHAR_REG,           (UART2_BASE + UART_AT_CMD_PRECHAR_OFF)
+.equ UART2_AT_CMD_CHAR_REG,              (UART2_BASE + UART_AT_CMD_CHAR_OFF)
+.equ UART2_MEM_CONF_REG,                 (UART2_BASE + UART_MEM_CONF_OFF)
+.equ UART2_MEM_TX_STATUS_REG,            (UART2_BASE + UART_MEM_TX_STATUS_OFF)
+.equ UART2_MEM_RX_STATUS_REG,            (UART2_BASE + UART_MEM_RX_STATUS_OFF)
 
 
 # ------------------------------------------------------------------------------
@@ -287,6 +433,39 @@
 .equ TIMG1_BASE,                         0x60020000
 .equ SYSTIMER_BASE,                      0x60023000
 
+.equ TIMG_T0CONFIG_OFF,                  0x000
+.equ TIMG_T0LO_OFF,                      0x004
+.equ TIMG_T0HI_OFF,                      0x008
+.equ TIMG_T0UPDATE_OFF,                  0x00C
+.equ TIMG_T0ALARMLO_OFF,                 0x010
+.equ TIMG_T0ALARMHI_OFF,                 0x014
+.equ TIMG_T0LOADLO_OFF,                  0x018
+.equ TIMG_T0LOADHI_OFF,                  0x01C
+.equ TIMG_T0LOAD_OFF,                    0x020
+.equ TIMG_T1CONFIG_OFF,                  0x024
+.equ TIMG_T1LO_OFF,                      0x028
+.equ TIMG_T1HI_OFF,                      0x02C
+.equ TIMG_T1UPDATE_OFF,                  0x030
+.equ TIMG_T1ALARMLO_OFF,                 0x034
+.equ TIMG_T1ALARMHI_OFF,                 0x038
+.equ TIMG_T1LOADLO_OFF,                  0x03C
+.equ TIMG_T1LOADHI_OFF,                  0x040
+.equ TIMG_T1LOAD_OFF,                    0x044
+.equ TIMG_WDTCONFIG0_OFF,                0x048
+.equ TIMG_WDTCONFIG1_OFF,                0x04C
+.equ TIMG_WDTCONFIG2_OFF,                0x050
+.equ TIMG_WDTCONFIG3_OFF,                0x054
+.equ TIMG_WDTCONFIG4_OFF,                0x058
+.equ TIMG_WDTCONFIG5_OFF,                0x05C
+.equ TIMG_WDTFEED_OFF,                   0x060
+.equ TIMG_WDTWPROTECT_OFF,               0x064
+.equ TIMG_RTCCALICFG_OFF,                0x068
+.equ TIMG_RTCCALICFG1_OFF,               0x06C
+.equ TIMG_INT_ENA_TIMERS_OFF,            0x070
+.equ TIMG_INT_RAW_TIMERS_OFF,            0x074
+.equ TIMG_INT_ST_TIMERS_OFF,             0x078
+.equ TIMG_INT_CLR_TIMERS_OFF,            0x07C
+
 .equ TIMG0_T0CONFIG_REG,                 0x6001F000
 .equ TIMG0_T0LO_REG,                     0x6001F004
 .equ TIMG0_T0HI_REG,                     0x6001F008
@@ -300,18 +479,96 @@
 .equ TIMG0_WDTCONFIG0_REG,               0x6001F048
 .equ TIMG0_WDTCONFIG1_REG,               0x6001F04C
 .equ TIMG0_WDTFEED_REG,                  0x6001F060
+.equ TIMG0_T1CONFIG_REG,                 (TIMG0_BASE + TIMG_T1CONFIG_OFF)
+.equ TIMG0_T1LO_REG,                     (TIMG0_BASE + TIMG_T1LO_OFF)
+.equ TIMG0_T1HI_REG,                     (TIMG0_BASE + TIMG_T1HI_OFF)
+.equ TIMG0_T1UPDATE_REG,                 (TIMG0_BASE + TIMG_T1UPDATE_OFF)
+.equ TIMG0_T1ALARMLO_REG,                (TIMG0_BASE + TIMG_T1ALARMLO_OFF)
+.equ TIMG0_T1ALARMHI_REG,                (TIMG0_BASE + TIMG_T1ALARMHI_OFF)
+.equ TIMG0_T1LOADLO_REG,                 (TIMG0_BASE + TIMG_T1LOADLO_OFF)
+.equ TIMG0_T1LOADHI_REG,                 (TIMG0_BASE + TIMG_T1LOADHI_OFF)
+.equ TIMG0_T1LOAD_REG,                   (TIMG0_BASE + TIMG_T1LOAD_OFF)
+.equ TIMG0_WDTCONFIG2_REG,               (TIMG0_BASE + TIMG_WDTCONFIG2_OFF)
+.equ TIMG0_WDTCONFIG3_REG,               (TIMG0_BASE + TIMG_WDTCONFIG3_OFF)
+.equ TIMG0_WDTCONFIG4_REG,               (TIMG0_BASE + TIMG_WDTCONFIG4_OFF)
+.equ TIMG0_WDTCONFIG5_REG,               (TIMG0_BASE + TIMG_WDTCONFIG5_OFF)
+.equ TIMG0_WDTWPROTECT_REG,              (TIMG0_BASE + TIMG_WDTWPROTECT_OFF)
+.equ TIMG0_RTCCALICFG_REG,               (TIMG0_BASE + TIMG_RTCCALICFG_OFF)
+.equ TIMG0_RTCCALICFG1_REG,              (TIMG0_BASE + TIMG_RTCCALICFG1_OFF)
+.equ TIMG0_INT_ENA_TIMERS_REG,           (TIMG0_BASE + TIMG_INT_ENA_TIMERS_OFF)
+.equ TIMG0_INT_RAW_TIMERS_REG,           (TIMG0_BASE + TIMG_INT_RAW_TIMERS_OFF)
+.equ TIMG0_INT_ST_TIMERS_REG,            (TIMG0_BASE + TIMG_INT_ST_TIMERS_OFF)
+.equ TIMG0_INT_CLR_TIMERS_REG,           (TIMG0_BASE + TIMG_INT_CLR_TIMERS_OFF)
 
 .equ TIMG1_T0CONFIG_REG,                 0x60020000
 .equ TIMG1_T0LO_REG,                     0x60020004
 .equ TIMG1_T0HI_REG,                     0x60020008
 .equ TIMG1_T0UPDATE_REG,                 0x6002000C
+.equ TIMG1_T0ALARMLO_REG,                (TIMG1_BASE + TIMG_T0ALARMLO_OFF)
+.equ TIMG1_T0ALARMHI_REG,                (TIMG1_BASE + TIMG_T0ALARMHI_OFF)
+.equ TIMG1_T0LOADLO_REG,                 (TIMG1_BASE + TIMG_T0LOADLO_OFF)
+.equ TIMG1_T0LOADHI_REG,                 (TIMG1_BASE + TIMG_T0LOADHI_OFF)
+.equ TIMG1_T0LOAD_REG,                   (TIMG1_BASE + TIMG_T0LOAD_OFF)
+.equ TIMG1_T1CONFIG_REG,                 (TIMG1_BASE + TIMG_T1CONFIG_OFF)
+.equ TIMG1_T1LO_REG,                     (TIMG1_BASE + TIMG_T1LO_OFF)
+.equ TIMG1_T1HI_REG,                     (TIMG1_BASE + TIMG_T1HI_OFF)
+.equ TIMG1_T1UPDATE_REG,                 (TIMG1_BASE + TIMG_T1UPDATE_OFF)
+.equ TIMG1_T1ALARMLO_REG,                (TIMG1_BASE + TIMG_T1ALARMLO_OFF)
+.equ TIMG1_T1ALARMHI_REG,                (TIMG1_BASE + TIMG_T1ALARMHI_OFF)
+.equ TIMG1_T1LOADLO_REG,                 (TIMG1_BASE + TIMG_T1LOADLO_OFF)
+.equ TIMG1_T1LOADHI_REG,                 (TIMG1_BASE + TIMG_T1LOADHI_OFF)
+.equ TIMG1_T1LOAD_REG,                   (TIMG1_BASE + TIMG_T1LOAD_OFF)
+.equ TIMG1_WDTCONFIG0_REG,               (TIMG1_BASE + TIMG_WDTCONFIG0_OFF)
+.equ TIMG1_WDTCONFIG1_REG,               (TIMG1_BASE + TIMG_WDTCONFIG1_OFF)
+.equ TIMG1_WDTCONFIG2_REG,               (TIMG1_BASE + TIMG_WDTCONFIG2_OFF)
+.equ TIMG1_WDTCONFIG3_REG,               (TIMG1_BASE + TIMG_WDTCONFIG3_OFF)
+.equ TIMG1_WDTCONFIG4_REG,               (TIMG1_BASE + TIMG_WDTCONFIG4_OFF)
+.equ TIMG1_WDTCONFIG5_REG,               (TIMG1_BASE + TIMG_WDTCONFIG5_OFF)
+.equ TIMG1_WDTFEED_REG,                  (TIMG1_BASE + TIMG_WDTFEED_OFF)
+.equ TIMG1_WDTWPROTECT_REG,              (TIMG1_BASE + TIMG_WDTWPROTECT_OFF)
+.equ TIMG1_RTCCALICFG_REG,               (TIMG1_BASE + TIMG_RTCCALICFG_OFF)
+.equ TIMG1_RTCCALICFG1_REG,              (TIMG1_BASE + TIMG_RTCCALICFG1_OFF)
+.equ TIMG1_INT_ENA_TIMERS_REG,           (TIMG1_BASE + TIMG_INT_ENA_TIMERS_OFF)
+.equ TIMG1_INT_RAW_TIMERS_REG,           (TIMG1_BASE + TIMG_INT_RAW_TIMERS_OFF)
+.equ TIMG1_INT_ST_TIMERS_REG,            (TIMG1_BASE + TIMG_INT_ST_TIMERS_OFF)
+.equ TIMG1_INT_CLR_TIMERS_REG,           (TIMG1_BASE + TIMG_INT_CLR_TIMERS_OFF)
 
 .equ SYSTIMER_CONF_REG,                  0x60023000
-.equ SYSTIMER_UNIT0_OP_REG,              0x60023008
-.equ SYSTIMER_UNIT1_OP_REG,              0x6002300C
-.equ SYSTIMER_TARGET0_CONF_REG,          0x60023010
-.equ SYSTIMER_TARGET1_CONF_REG,          0x60023018
-.equ SYSTIMER_TARGET2_CONF_REG,          0x60023020
+.equ SYSTIMER_UNIT0_OP_REG,              0x60023004
+.equ SYSTIMER_UNIT1_OP_REG,              0x60023008
+.equ SYSTIMER_TARGET0_CONF_REG,          0x60023034
+.equ SYSTIMER_TARGET1_CONF_REG,          0x60023038
+.equ SYSTIMER_TARGET2_CONF_REG,          0x6002303C
+.equ SYSTIMER_UNIT0_LOAD_HI_REG,         (SYSTIMER_BASE + 0x00C)
+.equ SYSTIMER_UNIT0_LOAD_LO_REG,         (SYSTIMER_BASE + 0x010)
+.equ SYSTIMER_UNIT1_LOAD_HI_REG,         (SYSTIMER_BASE + 0x014)
+.equ SYSTIMER_UNIT1_LOAD_LO_REG,         (SYSTIMER_BASE + 0x018)
+.equ SYSTIMER_TARGET0_HI_REG,            (SYSTIMER_BASE + 0x01C)
+.equ SYSTIMER_TARGET0_LO_REG,            (SYSTIMER_BASE + 0x020)
+.equ SYSTIMER_TARGET1_HI_REG,            (SYSTIMER_BASE + 0x024)
+.equ SYSTIMER_TARGET1_LO_REG,            (SYSTIMER_BASE + 0x028)
+.equ SYSTIMER_TARGET2_HI_REG,            (SYSTIMER_BASE + 0x02C)
+.equ SYSTIMER_TARGET2_LO_REG,            (SYSTIMER_BASE + 0x030)
+.equ SYSTIMER_UNIT0_VALUE_HI_REG,        (SYSTIMER_BASE + 0x040)
+.equ SYSTIMER_UNIT0_VALUE_LO_REG,        (SYSTIMER_BASE + 0x044)
+.equ SYSTIMER_UNIT1_VALUE_HI_REG,        (SYSTIMER_BASE + 0x048)
+.equ SYSTIMER_UNIT1_VALUE_LO_REG,        (SYSTIMER_BASE + 0x04C)
+.equ SYSTIMER_TARGET0_LOAD_REG,          (SYSTIMER_BASE + 0x050)
+.equ SYSTIMER_TARGET1_LOAD_REG,          (SYSTIMER_BASE + 0x054)
+.equ SYSTIMER_TARGET2_LOAD_REG,          (SYSTIMER_BASE + 0x058)
+.equ SYSTIMER_UNIT0_LOAD_REG,            (SYSTIMER_BASE + 0x05C)
+.equ SYSTIMER_UNIT1_LOAD_REG,            (SYSTIMER_BASE + 0x060)
+.equ SYSTIMER_INT_ENA_REG,               (SYSTIMER_BASE + 0x064)
+.equ SYSTIMER_INT_RAW_REG,               (SYSTIMER_BASE + 0x068)
+.equ SYSTIMER_INT_CLR_REG,               (SYSTIMER_BASE + 0x06C)
+.equ SYSTIMER_INT_ST_REG,                (SYSTIMER_BASE + 0x070)
+.equ SYSTIMER_TARGET0_VALUE_LO_REG,      (SYSTIMER_BASE + 0x074)
+.equ SYSTIMER_TARGET0_VALUE_HI_REG,      (SYSTIMER_BASE + 0x078)
+.equ SYSTIMER_TARGET1_VALUE_LO_REG,      (SYSTIMER_BASE + 0x07C)
+.equ SYSTIMER_TARGET1_VALUE_HI_REG,      (SYSTIMER_BASE + 0x080)
+.equ SYSTIMER_TARGET2_VALUE_LO_REG,      (SYSTIMER_BASE + 0x084)
+.equ SYSTIMER_TARGET2_VALUE_HI_REG,      (SYSTIMER_BASE + 0x088)
+.equ SYSTIMER_DATE_REG,                  (SYSTIMER_BASE + 0x0FC)
 
 
 # ------------------------------------------------------------------------------
@@ -320,29 +577,88 @@
 .equ SPI2_BASE,                          0x60024000
 .equ SPI3_BASE,                          0x60025000
 
+.equ SPI_CMD_OFF,                        0x000
+.equ SPI_ADDR_OFF,                       0x004
+.equ SPI_CTRL_OFF,                       0x008
+.equ SPI_CLOCK_OFF,                      0x00C
+.equ SPI_USER_OFF,                       0x010
+.equ SPI_USER1_OFF,                      0x014
+.equ SPI_USER2_OFF,                      0x018
+.equ SPI_MS_DLEN_OFF,                    0x01C
+.equ SPI_MISC_OFF,                       0x020
+.equ SPI_DATA_OFF,                       0x080
+.equ SPI_W0_OFF,                         0x080
+.equ SPI_W1_OFF,                         0x084
+.equ SPI_W2_OFF,                         0x088
+.equ SPI_W3_OFF,                         0x08C
+.equ SPI_W4_OFF,                         0x090
+.equ SPI_W5_OFF,                         0x094
+.equ SPI_W6_OFF,                         0x098
+.equ SPI_W7_OFF,                         0x09C
+.equ SPI_W8_OFF,                         0x0A0
+.equ SPI_W9_OFF,                         0x0A4
+.equ SPI_W10_OFF,                        0x0A8
+.equ SPI_W11_OFF,                        0x0AC
+.equ SPI_W12_OFF,                        0x0B0
+.equ SPI_W13_OFF,                        0x0B4
+.equ SPI_W14_OFF,                        0x0B8
+.equ SPI_W15_OFF,                        0x0BC
+
 .equ SPI2_CMD_REG,                       0x60024000
 .equ SPI2_ADDR_REG,                      0x60024004
 .equ SPI2_CTRL_REG,                      0x60024008
-.equ SPI2_CLOCK_REG,                     0x60024014
-.equ SPI2_USER_REG,                      0x60024018
-.equ SPI2_USER1_REG,                     0x6002401C
-.equ SPI2_USER2_REG,                     0x60024020
-.equ SPI2_MS_DLEN_REG,                   0x60024024
+.equ SPI2_CLOCK_REG,                     (SPI2_BASE + SPI_CLOCK_OFF)
+.equ SPI2_USER_REG,                      (SPI2_BASE + SPI_USER_OFF)
+.equ SPI2_USER1_REG,                     (SPI2_BASE + SPI_USER1_OFF)
+.equ SPI2_USER2_REG,                     (SPI2_BASE + SPI_USER2_OFF)
+.equ SPI2_MS_DLEN_REG,                   (SPI2_BASE + SPI_MS_DLEN_OFF)
 .equ SPI2_MOSI_DLEN_REG,                 0x60024028
 .equ SPI2_MISO_DLEN_REG,                 0x6002402C
-.equ SPI2_W0_REG,                        0x60024098
+.equ SPI2_W0_REG,                        (SPI2_BASE + SPI_W0_OFF)
+.equ SPI2_MISC_REG,                      (SPI2_BASE + SPI_MISC_OFF)
+.equ SPI2_W1_REG,                        (SPI2_BASE + SPI_W1_OFF)
+.equ SPI2_W2_REG,                        (SPI2_BASE + SPI_W2_OFF)
+.equ SPI2_W3_REG,                        (SPI2_BASE + SPI_W3_OFF)
+.equ SPI2_W4_REG,                        (SPI2_BASE + SPI_W4_OFF)
+.equ SPI2_W5_REG,                        (SPI2_BASE + SPI_W5_OFF)
+.equ SPI2_W6_REG,                        (SPI2_BASE + SPI_W6_OFF)
+.equ SPI2_W7_REG,                        (SPI2_BASE + SPI_W7_OFF)
+.equ SPI2_W8_REG,                        (SPI2_BASE + SPI_W8_OFF)
+.equ SPI2_W9_REG,                        (SPI2_BASE + SPI_W9_OFF)
+.equ SPI2_W10_REG,                       (SPI2_BASE + SPI_W10_OFF)
+.equ SPI2_W11_REG,                       (SPI2_BASE + SPI_W11_OFF)
+.equ SPI2_W12_REG,                       (SPI2_BASE + SPI_W12_OFF)
+.equ SPI2_W13_REG,                       (SPI2_BASE + SPI_W13_OFF)
+.equ SPI2_W14_REG,                       (SPI2_BASE + SPI_W14_OFF)
+.equ SPI2_W15_REG,                       (SPI2_BASE + SPI_W15_OFF)
 
 .equ SPI3_CMD_REG,                       0x60025000
 .equ SPI3_ADDR_REG,                      0x60025004
 .equ SPI3_CTRL_REG,                      0x60025008
-.equ SPI3_CLOCK_REG,                     0x60025014
-.equ SPI3_USER_REG,                      0x60025018
-.equ SPI3_USER1_REG,                     0x6002501C
-.equ SPI3_USER2_REG,                     0x60025020
-.equ SPI3_MS_DLEN_REG,                   0x60025024
+.equ SPI3_CLOCK_REG,                     (SPI3_BASE + SPI_CLOCK_OFF)
+.equ SPI3_USER_REG,                      (SPI3_BASE + SPI_USER_OFF)
+.equ SPI3_USER1_REG,                     (SPI3_BASE + SPI_USER1_OFF)
+.equ SPI3_USER2_REG,                     (SPI3_BASE + SPI_USER2_OFF)
+.equ SPI3_MS_DLEN_REG,                   (SPI3_BASE + SPI_MS_DLEN_OFF)
 .equ SPI3_MOSI_DLEN_REG,                 0x60025028
 .equ SPI3_MISO_DLEN_REG,                 0x6002502C
-.equ SPI3_W0_REG,                        0x60025098
+.equ SPI3_W0_REG,                        (SPI3_BASE + SPI_W0_OFF)
+.equ SPI3_MISC_REG,                      (SPI3_BASE + SPI_MISC_OFF)
+.equ SPI3_W1_REG,                        (SPI3_BASE + SPI_W1_OFF)
+.equ SPI3_W2_REG,                        (SPI3_BASE + SPI_W2_OFF)
+.equ SPI3_W3_REG,                        (SPI3_BASE + SPI_W3_OFF)
+.equ SPI3_W4_REG,                        (SPI3_BASE + SPI_W4_OFF)
+.equ SPI3_W5_REG,                        (SPI3_BASE + SPI_W5_OFF)
+.equ SPI3_W6_REG,                        (SPI3_BASE + SPI_W6_OFF)
+.equ SPI3_W7_REG,                        (SPI3_BASE + SPI_W7_OFF)
+.equ SPI3_W8_REG,                        (SPI3_BASE + SPI_W8_OFF)
+.equ SPI3_W9_REG,                        (SPI3_BASE + SPI_W9_OFF)
+.equ SPI3_W10_REG,                       (SPI3_BASE + SPI_W10_OFF)
+.equ SPI3_W11_REG,                       (SPI3_BASE + SPI_W11_OFF)
+.equ SPI3_W12_REG,                       (SPI3_BASE + SPI_W12_OFF)
+.equ SPI3_W13_REG,                       (SPI3_BASE + SPI_W13_OFF)
+.equ SPI3_W14_REG,                       (SPI3_BASE + SPI_W14_OFF)
+.equ SPI3_W15_REG,                       (SPI3_BASE + SPI_W15_OFF)
 
 
 # ------------------------------------------------------------------------------
@@ -351,19 +667,101 @@
 .equ I2C0_BASE,                          0x60013000
 .equ I2C1_BASE,                          0x60027000
 
+.equ I2C_SCL_LOW_PERIOD_OFF,              0x000
+.equ I2C_CTR_OFF,                         0x004
+.equ I2C_SR_OFF,                          0x008
+.equ I2C_TO_OFF,                          0x00C
+.equ I2C_SLAVE_ADDR_OFF,                  0x010
+.equ I2C_FIFO_ST_OFF,                     0x014
+.equ I2C_FIFO_CONF_OFF,                   0x018
+.equ I2C_DATA_FIFO_OFF,                   0x01C
+.equ I2C_INT_RAW_OFF,                     0x020
+.equ I2C_INT_CLR_OFF,                     0x024
+.equ I2C_SDA_HOLD_OFF,                    0x030
+.equ I2C_SDA_SAMPLE_OFF,                  0x034
+.equ I2C_SCL_HIGH_PERIOD_OFF,             0x038
+.equ I2C_SCL_START_HOLD_OFF,              0x040
+.equ I2C_SCL_RSTART_SETUP_OFF,            0x044
+.equ I2C_SCL_STOP_HOLD_OFF,               0x048
+.equ I2C_SCL_STOP_SETUP_OFF,              0x04C
+.equ I2C_FILTER_CFG_OFF,                  0x050
+.equ I2C_CLK_CONF_OFF,                    0x054
+.equ I2C_COMD0_OFF,                       0x058
+.equ I2C_COMD1_OFF,                       0x05C
+.equ I2C_COMD2_OFF,                       0x060
+.equ I2C_COMD3_OFF,                       0x064
+.equ I2C_COMD4_OFF,                       0x068
+.equ I2C_COMD5_OFF,                       0x06C
+.equ I2C_COMD6_OFF,                       0x070
+.equ I2C_COMD7_OFF,                       0x074
+.equ I2C_SCL_ST_TIME_OUT_OFF,             0x078
+.equ I2C_SCL_MAIN_ST_TIME_OUT_OFF,        0x07C
+.equ I2C_SCL_SP_CONF_OFF,                 0x080
+.equ I2C_SCL_STRETCH_CONF_OFF,            0x084
+
 .equ I2C0_SCL_LOW_PERIOD_REG,            0x60013000
 .equ I2C0_CTR_REG,                       0x60013004
 .equ I2C0_SR_REG,                        0x60013008
 .equ I2C0_TO_REG,                        0x6001300C
-.equ I2C0_FIFO_CONF_REG,                 0x60013014
+.equ I2C0_FIFO_CONF_REG,                 (I2C0_BASE + I2C_FIFO_CONF_OFF)
 .equ I2C0_DATA_FIFO_REG,                 0x6001301C
+.equ I2C0_SLAVE_ADDR_REG,                (I2C0_BASE + I2C_SLAVE_ADDR_OFF)
+.equ I2C0_FIFO_ST_REG,                   (I2C0_BASE + I2C_FIFO_ST_OFF)
+.equ I2C0_INT_RAW_REG,                   (I2C0_BASE + I2C_INT_RAW_OFF)
+.equ I2C0_INT_CLR_REG,                   (I2C0_BASE + I2C_INT_CLR_OFF)
+.equ I2C0_SDA_HOLD_REG,                  (I2C0_BASE + I2C_SDA_HOLD_OFF)
+.equ I2C0_SDA_SAMPLE_REG,                (I2C0_BASE + I2C_SDA_SAMPLE_OFF)
+.equ I2C0_SCL_HIGH_PERIOD_REG,           (I2C0_BASE + I2C_SCL_HIGH_PERIOD_OFF)
+.equ I2C0_SCL_START_HOLD_REG,            (I2C0_BASE + I2C_SCL_START_HOLD_OFF)
+.equ I2C0_SCL_RSTART_SETUP_REG,          (I2C0_BASE + I2C_SCL_RSTART_SETUP_OFF)
+.equ I2C0_SCL_STOP_HOLD_REG,             (I2C0_BASE + I2C_SCL_STOP_HOLD_OFF)
+.equ I2C0_SCL_STOP_SETUP_REG,            (I2C0_BASE + I2C_SCL_STOP_SETUP_OFF)
+.equ I2C0_FILTER_CFG_REG,                (I2C0_BASE + I2C_FILTER_CFG_OFF)
+.equ I2C0_CLK_CONF_REG,                  (I2C0_BASE + I2C_CLK_CONF_OFF)
+.equ I2C0_COMD0_REG,                     (I2C0_BASE + I2C_COMD0_OFF)
+.equ I2C0_COMD1_REG,                     (I2C0_BASE + I2C_COMD1_OFF)
+.equ I2C0_COMD2_REG,                     (I2C0_BASE + I2C_COMD2_OFF)
+.equ I2C0_COMD3_REG,                     (I2C0_BASE + I2C_COMD3_OFF)
+.equ I2C0_COMD4_REG,                     (I2C0_BASE + I2C_COMD4_OFF)
+.equ I2C0_COMD5_REG,                     (I2C0_BASE + I2C_COMD5_OFF)
+.equ I2C0_COMD6_REG,                     (I2C0_BASE + I2C_COMD6_OFF)
+.equ I2C0_COMD7_REG,                     (I2C0_BASE + I2C_COMD7_OFF)
+.equ I2C0_SCL_ST_TIME_OUT_REG,           (I2C0_BASE + I2C_SCL_ST_TIME_OUT_OFF)
+.equ I2C0_SCL_MAIN_ST_TIME_OUT_REG,      (I2C0_BASE + I2C_SCL_MAIN_ST_TIME_OUT_OFF)
+.equ I2C0_SCL_SP_CONF_REG,               (I2C0_BASE + I2C_SCL_SP_CONF_OFF)
+.equ I2C0_SCL_STRETCH_CONF_REG,          (I2C0_BASE + I2C_SCL_STRETCH_CONF_OFF)
 
 .equ I2C1_SCL_LOW_PERIOD_REG,            0x60027000
 .equ I2C1_CTR_REG,                       0x60027004
 .equ I2C1_SR_REG,                        0x60027008
 .equ I2C1_TO_REG,                        0x6002700C
-.equ I2C1_FIFO_CONF_REG,                 0x60027014
+.equ I2C1_FIFO_CONF_REG,                 (I2C1_BASE + I2C_FIFO_CONF_OFF)
 .equ I2C1_DATA_FIFO_REG,                 0x6002701C
+.equ I2C1_SLAVE_ADDR_REG,                (I2C1_BASE + I2C_SLAVE_ADDR_OFF)
+.equ I2C1_FIFO_ST_REG,                   (I2C1_BASE + I2C_FIFO_ST_OFF)
+.equ I2C1_INT_RAW_REG,                   (I2C1_BASE + I2C_INT_RAW_OFF)
+.equ I2C1_INT_CLR_REG,                   (I2C1_BASE + I2C_INT_CLR_OFF)
+.equ I2C1_SDA_HOLD_REG,                  (I2C1_BASE + I2C_SDA_HOLD_OFF)
+.equ I2C1_SDA_SAMPLE_REG,                (I2C1_BASE + I2C_SDA_SAMPLE_OFF)
+.equ I2C1_SCL_HIGH_PERIOD_REG,           (I2C1_BASE + I2C_SCL_HIGH_PERIOD_OFF)
+.equ I2C1_SCL_START_HOLD_REG,            (I2C1_BASE + I2C_SCL_START_HOLD_OFF)
+.equ I2C1_SCL_RSTART_SETUP_REG,          (I2C1_BASE + I2C_SCL_RSTART_SETUP_OFF)
+.equ I2C1_SCL_STOP_HOLD_REG,             (I2C1_BASE + I2C_SCL_STOP_HOLD_OFF)
+.equ I2C1_SCL_STOP_SETUP_REG,            (I2C1_BASE + I2C_SCL_STOP_SETUP_OFF)
+.equ I2C1_FILTER_CFG_REG,                (I2C1_BASE + I2C_FILTER_CFG_OFF)
+.equ I2C1_CLK_CONF_REG,                  (I2C1_BASE + I2C_CLK_CONF_OFF)
+.equ I2C1_COMD0_REG,                     (I2C1_BASE + I2C_COMD0_OFF)
+.equ I2C1_COMD1_REG,                     (I2C1_BASE + I2C_COMD1_OFF)
+.equ I2C1_COMD2_REG,                     (I2C1_BASE + I2C_COMD2_OFF)
+.equ I2C1_COMD3_REG,                     (I2C1_BASE + I2C_COMD3_OFF)
+.equ I2C1_COMD4_REG,                     (I2C1_BASE + I2C_COMD4_OFF)
+.equ I2C1_COMD5_REG,                     (I2C1_BASE + I2C_COMD5_OFF)
+.equ I2C1_COMD6_REG,                     (I2C1_BASE + I2C_COMD6_OFF)
+.equ I2C1_COMD7_REG,                     (I2C1_BASE + I2C_COMD7_OFF)
+.equ I2C1_SCL_ST_TIME_OUT_REG,           (I2C1_BASE + I2C_SCL_ST_TIME_OUT_OFF)
+.equ I2C1_SCL_MAIN_ST_TIME_OUT_REG,      (I2C1_BASE + I2C_SCL_MAIN_ST_TIME_OUT_OFF)
+.equ I2C1_SCL_SP_CONF_REG,               (I2C1_BASE + I2C_SCL_SP_CONF_OFF)
+.equ I2C1_SCL_STRETCH_CONF_REG,          (I2C1_BASE + I2C_SCL_STRETCH_CONF_OFF)
 
 
 # ------------------------------------------------------------------------------
@@ -632,24 +1030,15 @@
 # ------------------------------------------------------------------------------
 # 17. TWAI (CAN)
 # ------------------------------------------------------------------------------
-.equ TWAI0_BASE,                         0x6002D000
-.equ TWAI1_BASE,                         0x6002E000
+.equ TWAI0_BASE,                         0x6002B000
 
-.equ TWAI0_MODE_REG,                     0x6002D000
-.equ TWAI0_CMD_REG,                      0x6002D004
-.equ TWAI0_STATUS_REG,                   0x6002D008
-.equ TWAI0_INT_RAW_REG,                  0x6002D00C
-.equ TWAI0_INT_ENA_REG,                  0x6002D010
-.equ TWAI0_BUS_TIMING_0_REG,             0x6002D018
-.equ TWAI0_BUS_TIMING_1_REG,             0x6002D01C
-
-.equ TWAI1_MODE_REG,                     0x6002E000
-.equ TWAI1_CMD_REG,                      0x6002E004
-.equ TWAI1_STATUS_REG,                   0x6002E008
-.equ TWAI1_INT_RAW_REG,                  0x6002E00C
-.equ TWAI1_INT_ENA_REG,                  0x6002E010
-.equ TWAI1_BUS_TIMING_0_REG,             0x6002E018
-.equ TWAI1_BUS_TIMING_1_REG,             0x6002E01C
+.equ TWAI0_MODE_REG,                     (TWAI0_BASE + 0x000)
+.equ TWAI0_CMD_REG,                      (TWAI0_BASE + 0x004)
+.equ TWAI0_STATUS_REG,                   (TWAI0_BASE + 0x008)
+.equ TWAI0_INT_RAW_REG,                  (TWAI0_BASE + 0x00C)
+.equ TWAI0_INT_ENA_REG,                  (TWAI0_BASE + 0x010)
+.equ TWAI0_BUS_TIMING_0_REG,             (TWAI0_BASE + 0x018)
+.equ TWAI0_BUS_TIMING_1_REG,             (TWAI0_BASE + 0x01C)
 
 
 # ------------------------------------------------------------------------------
@@ -713,20 +1102,21 @@
 # ------------------------------------------------------------------------------
 # 23. LCD / Camera Controller
 # ------------------------------------------------------------------------------
-.equ LCD_CAM_BASE,                       0x60026000
+.equ LCD_CAM_BASE,                       0x60041000
 
-.equ LCD_CAM_LCD_USER_REG,               0x60026000
-.equ LCD_CAM_LCD_MISC_REG,               0x60026004
-.equ LCD_CAM_LCD_DATA_DOUT_MODE_REG,     0x60026008
-.equ LCD_CAM_LCD_DATA_DOUT_NUM_REG,      0x6002600C
-.equ LCD_CAM_LCD_DLY_MODE_CFG_REG,       0x60026010
-.equ LCD_CAM_LCD_CTRL_REG,               0x60026014
-.equ LCD_CAM_LCD_CLOCK_REG,              0x60026018
+.equ LCD_CAM_LCD_USER_REG,               (LCD_CAM_BASE + 0x14)
+.equ LCD_CAM_LCD_MISC_REG,               (LCD_CAM_BASE + 0x18)
+.equ LCD_CAM_LCD_DATA_DOUT_MODE_REG,     (LCD_CAM_BASE + 0x38)
+.equ LCD_CAM_LCD_DLY_MODE_CFG_REG,       (LCD_CAM_BASE + 0x30)
+.equ LCD_CAM_LCD_CTRL_REG,               (LCD_CAM_BASE + 0x1C)
+.equ LCD_CAM_LCD_CTRL1_REG,              (LCD_CAM_BASE + 0x20)
+.equ LCD_CAM_LCD_CTRL2_REG,              (LCD_CAM_BASE + 0x24)
+.equ LCD_CAM_LCD_RGB_YUV_REG,            (LCD_CAM_BASE + 0x10)
+.equ LCD_CAM_LCD_CLOCK_REG,              (LCD_CAM_BASE + 0x00)
 
-.equ LCD_CAM_CAM_CTRL_REG,               0x60026020
-.equ LCD_CAM_CAM_CTRL1_REG,              0x60026024
-.equ LCD_CAM_CAM_RGB_YUV_REG,            0x60026028
-.equ LCD_CAM_CAM_CTRL2_REG,              0x6002602C
+.equ LCD_CAM_CAM_CTRL_REG,               (LCD_CAM_BASE + 0x04)
+.equ LCD_CAM_CAM_CTRL1_REG,              (LCD_CAM_BASE + 0x08)
+.equ LCD_CAM_CAM_RGB_YUV_REG,            (LCD_CAM_BASE + 0x0C)
 
 
 # ------------------------------------------------------------------------------
