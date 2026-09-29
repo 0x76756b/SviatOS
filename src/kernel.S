@@ -1,4 +1,3 @@
-.include "include/gpio.inc"
 .include "include/registers.inc"
 
 .section .literal, "ax"
