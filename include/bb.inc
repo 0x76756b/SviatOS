@@ -1,0 +1,16 @@
+/* =================================================== */
+/* Peripheral: BB */
+/* =================================================== */
+.equ BB_BASE, 0x6001D000
+
+/* Register: BB_BBPD_CTRL */
+.equ BB_BBPD_CTRL_OFFSET, 0x0054
+.equ BB_BBPD_CTRL_ADDR, 0x6001D054
+.equ BB_BBPD_CTRL_DC_EST_FORCE_PD_SHIFT, 0
+.equ BB_BBPD_CTRL_DC_EST_FORCE_PD_MASK, 0x00000001
+.equ BB_BBPD_CTRL_DC_EST_FORCE_PU_SHIFT, 1
+.equ BB_BBPD_CTRL_DC_EST_FORCE_PU_MASK, 0x00000002
+.equ BB_BBPD_CTRL_FFT_FORCE_PD_SHIFT, 2
+.equ BB_BBPD_CTRL_FFT_FORCE_PD_MASK, 0x00000004
+.equ BB_BBPD_CTRL_FFT_FORCE_PU_SHIFT, 3
+.equ BB_BBPD_CTRL_FFT_FORCE_PU_MASK, 0x00000008
